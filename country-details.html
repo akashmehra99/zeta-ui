@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./country-details.css">
+    <title>Country Details</title>
+</head>
+
+<body>
+    <div class="container container-margin">
+        <form>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="showEnteries">No. of enteries per page</label>
+                        <select class="form-control" id="showEnteries" onchange="setNewNoOfEneteries()">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="search">Search</label>
+                        <input type="text" class="form-control" id="search" placeholder="Search">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="sortBasedOn">Sort Based On</label>
+                        <select class="form-control" id="sortBasedOn" onchange="sortTableData()">
+                            <option value="">Select Preference</option>
+                            <option value="name">Country Name</option>
+                            <option value="population">Population</option>
+                            <option value="area">Area</option>
+                            <option value="region">Region</option>
+                            <option value="gini">Gini</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="sortOrder">Order</label>
+                        <select class="form-control" id="sortOrder" onchange="sortTableData()">
+                            <option value="">Sort Order</option>
+                            <option value="asc">Ascending</option>
+                            <option value="des">Descending</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Country Name</th>
+                    <th scope="col">Population</th>
+                    <th scope="col">Area</th>
+                    <th scope="col">Region</th>
+                    <th scope="col">Gini</th>
+                </tr>
+                <tr>
+                    <th scope="col">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="searchByCountry" placeholder="Search By Country" onchange="filterby('searchByCountry', 'name', '2')">
+                        </div>
+                    </th>
+                    <th scope="col">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="searchByPopulation" placeholder="Search By Min. Population"
+                            onchange="filterby('searchByPopulation', 'population', '1')">
+                        </div>
+                    </th>
+                    <th scope="col">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="searchByArea" placeholder="Search by Min. Area"
+                            onchange="filterby('searchByArea', 'area', '1')">
+                        </div>
+                    </th>
+                    <th scope="col">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="searchByRegion" placeholder="Search by Region"
+                            onchange="filterby('searchByRegion', 'region', '3')">
+                        </div>
+                    </th>
+                    <th scope="col">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="searchByGini" placeholder="Search by Gini"
+                            onchange="filterby('searchByGini','gini', '1')">
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="populateData">
+            </tbody>
+        </table>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination pagination-scroll" id="paginationUl">
+            </ul>
+        </nav>
+    </div>
+    <script src="country-details.js"></script>
+</body>
+
+</html>
